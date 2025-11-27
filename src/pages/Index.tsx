@@ -94,19 +94,20 @@ export default function Index() {
 
       <main className="container mx-auto px-4 py-8 space-y-16">
         <section className="text-center space-y-4">
-          <div className="inline-block tf2-border tf2-shadow bg-secondary text-secondary-foreground px-8 py-4 hover-lift cursor-pointer">
+          <div className="inline-block tf2-border tf2-shadow bg-secondary text-secondary-foreground px-8 py-4 hover-lift cursor-pointer animate-slide-down">
             <h2 className="text-4xl font-black">9 КЛАССОВ</h2>
             <p className="text-lg font-semibold">Выбери свой стиль игры!</p>
           </div>
         </section>
 
         <section id="classes">
-          <h2 className="text-4xl font-black mb-8 text-center">🎯 КЛАССЫ</h2>
+          <h2 className="text-4xl font-black mb-8 text-center animate-slide-down">🎯 КЛАССЫ</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {classes.map((cls) => (
+            {classes.map((cls, idx) => (
               <Card 
                 key={cls.name} 
-                className="tf2-border tf2-shadow hover-lift p-6 bg-card cursor-pointer"
+                className="tf2-border tf2-shadow hover-lift p-6 bg-card cursor-pointer animate-pop-in"
+                style={{ animationDelay: `${idx * 0.1}s`, animationFillMode: 'backwards' }}
               >
                 <div className={`${cls.color} w-16 h-16 rounded-lg flex items-center justify-center mb-4 tf2-border tf2-shadow`}>
                   <Icon name={cls.icon} size={32} className="text-white" />
@@ -119,7 +120,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section id="craft" className="bg-accent/10 tf2-border tf2-shadow p-8 rounded-lg">
+        <section id="craft" className="bg-accent/10 tf2-border tf2-shadow p-8 rounded-lg animate-slide-down">
           <h2 className="text-4xl font-black mb-8 text-center">🔧 КАЛЬКУЛЯТОР КРАФТА</h2>
           
           <Tabs defaultValue="calculator" className="w-full">
@@ -208,10 +209,10 @@ export default function Index() {
         </section>
 
         <section id="weapons">
-          <h2 className="text-4xl font-black mb-8 text-center">🔫 ОРУЖИЕ</h2>
+          <h2 className="text-4xl font-black mb-8 text-center animate-slide-down">🔫 ОРУЖИЕ</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {weapons.map((weapon, idx) => (
-              <Card key={idx} className="tf2-border tf2-shadow hover-lift p-5 bg-card">
+              <Card key={idx} className="tf2-border tf2-shadow hover-lift p-5 bg-card animate-pop-in" style={{ animationDelay: `${idx * 0.1}s`, animationFillMode: 'backwards' }}>
                 <div className="flex items-start gap-3">
                   <div className="bg-destructive text-destructive-foreground w-10 h-10 rounded flex items-center justify-center tf2-border">
                     <Icon name="Sword" size={20} />
@@ -231,10 +232,10 @@ export default function Index() {
         </section>
 
         <section id="maps">
-          <h2 className="text-4xl font-black mb-8 text-center">🗺️ КАРТЫ</h2>
+          <h2 className="text-4xl font-black mb-8 text-center animate-slide-down">🗺️ КАРТЫ</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {maps.map((map) => (
-              <Card key={map.name} className="tf2-border tf2-shadow hover-lift p-6 bg-card">
+            {maps.map((map, idx) => (
+              <Card key={map.name} className="tf2-border tf2-shadow hover-lift p-6 bg-card animate-pop-in" style={{ animationDelay: `${idx * 0.15}s`, animationFillMode: 'backwards' }}>
                 <div className="flex items-center gap-4">
                   <div className="bg-secondary text-secondary-foreground w-16 h-16 rounded-lg flex items-center justify-center tf2-border">
                     <Icon name="Map" size={32} />
@@ -255,7 +256,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="text-center tf2-border tf2-shadow bg-primary text-primary-foreground p-12 rounded-lg">
+        <section className="text-center tf2-border tf2-shadow bg-primary text-primary-foreground p-12 rounded-lg animate-pop-in">
           <h2 className="text-4xl font-black mb-4">ПРИСОЕДИНЯЙСЯ К СООБЩЕСТВУ!</h2>
           <p className="text-xl font-semibold mb-6 opacity-90">Миллионы игроков по всему миру</p>
           <Button size="lg" variant="secondary" className="tf2-border tf2-shadow font-black text-lg hover-lift">
